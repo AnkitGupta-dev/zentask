@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* ZenTask Design System - Light Mode */
+    --background: 250 50% 98%;
+    --foreground: 240 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+
+    /* Modern blue gradient primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 55%;
+
+    /* Soft purple accent */
+    --secondary: 262 83% 96%;
+    --secondary-foreground: 262 83% 15%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom ZenTask variables */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(262 83% 58%));
+    --gradient-subtle: linear-gradient(135deg, hsl(250 50% 98%), hsl(240 5% 96%));
+    --shadow-soft: 0 4px 6px -1px hsl(240 5% 15% / 0.1), 0 2px 4px -1px hsl(240 5% 15% / 0.06);
+    --shadow-medium: 0 10px 15px -3px hsl(240 5% 15% / 0.1), 0 4px 6px -2px hsl(240 5% 15% / 0.05);
+    --shadow-large: 0 25px 50px -12px hsl(240 5% 15% / 0.25);
+    
+    /* Task status colors */
+    --todo: 217 91% 60%;
+    --todo-bg: 217 91% 95%;
+    --inprogress: 38 92% 50%;
+    --inprogress-bg: 38 92% 95%;
+    --done: 142 76% 36%;
+    --done-bg: 142 76% 95%;
+  }
+
+  .dark {
+    /* ZenTask Design System - Dark Mode */
+    --background: 240 10% 4%;
+    --foreground: 240 5% 96%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 217 91% 65%;
+    --primary-foreground: 240 10% 4%;
+    --primary-hover: 217 91% 70%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 240 5% 96%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 262 83% 65%;
+    --accent-foreground: 240 10% 4%;
+
+    --success: 142 76% 41%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 217 91% 65%;
+
+    /* Custom ZenTask variables - Dark */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 65%), hsl(262 83% 65%));
+    --gradient-subtle: linear-gradient(135deg, hsl(240 10% 4%), hsl(240 4% 16%));
+    --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
+    --shadow-medium: 0 10px 15px -3px hsl(0 0% 0% / 0.3), 0 4px 6px -2px hsl(0 0% 0% / 0.2);
+    --shadow-large: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    
+    /* Task status colors - Dark */
+    --todo: 217 91% 65%;
+    --todo-bg: 217 91% 10%;
+    --inprogress: 38 92% 55%;
+    --inprogress-bg: 38 92% 10%;
+    --done: 142 76% 41%;
+    --done-bg: 142 76% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  .task-card {
+    @apply bg-card border border-border rounded-xl p-4 shadow-soft hover:shadow-medium transition-all duration-200;
+  }
+
+  .status-todo {
+    @apply bg-blue-50 border-blue-200 dark:bg-blue-950/20 dark:border-blue-800/30;
+  }
+
+  .status-inprogress {
+    @apply bg-orange-50 border-orange-200 dark:bg-orange-950/20 dark:border-orange-800/30;
+  }
+
+  .status-done {
+    @apply bg-green-50 border-green-200 dark:bg-green-950/20 dark:border-green-800/30;
+  }
+}
