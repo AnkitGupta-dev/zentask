@@ -7,14 +7,29 @@ const taskRoutes = require('./routes/tasks');
 
 const app = express();
 
-// ✅ CORS setup
-app.use(cors({
-  origin: [
-    "http://localhost:5173", // local frontend
-    "https://zentask-client-eqddtmmsh-ankit-guptas-projects-eba5c0c3.vercel.app" // deployed frontend
-  ],
-  credentials: true
-}));
+// ✅ Allowed origins (explicit + regex for Vercel previews)
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  "https://zentask-client-eqddtmmsh-ankit-guptas-projects-eba5c0c3.vercel.app", // your production frontend
+];
+
+// ✅ CORS middleware
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // allow non-browser requests (e.g. Postman)
+      if (
+        allowedOrigins.includes(origin) ||
+        /\.vercel\.app$/.test(origin) // ✅ allow all Vercel preview deployments
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
