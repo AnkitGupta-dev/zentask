@@ -113,7 +113,9 @@ Update baseURL in zentask-client/src/lib/api.ts with your deployed backend URL.
 ## 👨‍💻 Author
 
 Ankit Gupta
+
 📧 Email: ankit.g.work@gmail.com
+
 📱 Phone: +91-7728005903
 
 ⭐ If you like this project, give it a star on GitHub!
