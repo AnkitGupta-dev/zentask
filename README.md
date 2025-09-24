@@ -41,13 +41,13 @@ Built with **React (Vite)**, **Node.js + Express**, and **Prisma ORM**, it’s d
 ## 📸 Screenshots
 
 ### 🔐 Login Page
-![Login](./screenshots/login.png)
+![Login](./screenshots/Login.png)
 
 ### 📋 Task Board
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/Dashboard.png)
 
 ### 📊 Analytics
-![Analytics](./screenshots/analytics.png)
+![Analytics](./screenshots/Analytics.png)
 
 ---
 
