@@ -91,8 +91,10 @@ npm run dev
 ## 🚀 Deployment
 
 Backend: Deployed on Render
+https://zentask-api-a6mt.onrender.com
 
 Frontend: Deployed on Vercel
+https://zentask-client.vercel.app/
 
 Update baseURL in zentask-client/src/lib/api.ts with your deployed backend URL.
 
